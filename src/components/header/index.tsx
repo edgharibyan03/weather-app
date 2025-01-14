@@ -22,7 +22,7 @@ export function Header({
     if (inputRef.current) {
       handleGetWeather({ q: inputRef.current.value })
     }
-  }, [])
+  }, [currentUnit])
 
   return (
     <div className='header'>

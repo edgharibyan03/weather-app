@@ -19,20 +19,17 @@ export function Home() {
   const [currentUnit, setCurrentUnit] = useState<weatherUnits>('metric')
 
   const handleGetWeather = useCallback((data: IGetWeatherData) => {
-    const oldData: IGetWeatherData = {
-      units: currentUnit
-    }
+    dispatch(getWeather(qs.stringify({ units: currentUnit, ...data })))
 
-    dispatch(getWeather(qs.stringify({ ...oldData, ...data })))
-
-    dispatch(getCurrentWeather(qs.stringify({ ...oldData, ...data })))
+    console.log(currentUnit);
+    dispatch(getCurrentWeather(qs.stringify({ units: currentUnit, ...data })))
   }, [currentUnit])
 
   const handleChangeCurrentUnit = useCallback((unit: weatherUnits) => {
     setCurrentUnit(unit)
 
     handleGetWeather({ units: unit, q: currentWeather?.name })
-  }, [currentWeather])
+  }, [currentWeather, currentUnit])
 
   const handleSetCurrentDay = useCallback((day: number) => {
     setCurrentDay(day)
@@ -42,7 +39,7 @@ export function Home() {
     const { latitude: lat, longitude: lon } = position.coords;
 
     handleGetWeather({ lat, lon, units: currentUnit })
-  }, [])
+  }, [currentUnit])
 
   useEffect(() => {
     if (navigator.geolocation) {
