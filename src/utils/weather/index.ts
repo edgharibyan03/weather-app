@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { ICurrentWeather, IWeatherDataItem } from "../interfaces";
+import { IWeatherDataItem } from "../interfaces";
 
 export function filterTodayWeather(list: IWeatherDataItem[], currentDay: number) {
   return list.filter(item => currentDay === dayjs(item.dt_txt).get('date'));
