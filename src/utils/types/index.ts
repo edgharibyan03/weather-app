@@ -1,1 +1,1 @@
-export type weatherUnits = 'standard' | 'metric'
+export type weatherUnits = 'imperial' | 'metric'

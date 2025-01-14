@@ -40,7 +40,7 @@ export function Header({
               </div>
               <div>
                 <label htmlFor="">°F</label>
-                <input checked={currentUnit === 'standard'} name='weather-unit' type="radio" onClick={() => handleChangeCurrentUnit('standard')} />
+                <input checked={currentUnit === 'imperial'} name='weather-unit' type="radio" onClick={() => handleChangeCurrentUnit('imperial')} />
               </div>
             </form>
           </div>
