@@ -1,0 +1,49 @@
+.weather-in-days{
+  display: flex;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  &-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 12px;
+    flex-direction: column;
+    margin-right: 20px;
+    border-radius: 8px;
+    transition: all .3s;
+    &.active{
+      background-color: #ccc;
+    }
+    flex: 1;
+    &:hover{
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      cursor: pointer;
+    }
+    & > span{
+      font-size: 24px;
+      font-weight: bold;
+    }
+    & > div{
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
+      & span{
+        font-size: 18px;
+      }
+      & img{
+        width: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .weather-in-days{
+    &-item{
+      margin-bottom: 20px;
+      max-width: fit-content;
+    }
+  }
+}

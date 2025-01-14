@@ -1,0 +1,34 @@
+.header{
+  background-color: blueviolet;
+  padding: 20px 0;
+  width: 100%;
+  &-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-units{
+    background-color: #ccc;
+    border-radius: 12px;
+    padding: 10px;
+    & form{
+      display: flex;
+      & > div{
+        &:first-child{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .header{
+    &-block{
+      flex-direction: column;
+    }
+    &-units{
+      margin-top: 20px;
+    }
+  }
+}
